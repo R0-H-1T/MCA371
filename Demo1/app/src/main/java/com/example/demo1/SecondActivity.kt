@@ -13,10 +13,12 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -114,19 +116,39 @@ fun Courses() {
         }
 
         val context = LocalContext.current
-        Button(
-            onClick = {
-                val intent = Intent(context, ThirdActivity::class.java).apply{
-                    putExtra("NAME", "Rohit Tank")
-                    putExtra("REGISTER_NO", "2347161")
-                }
-                context.startActivity(intent)
-            },
-            modifier = Modifier.align(Alignment.Center),
-            colors = ButtonDefaults.buttonColors(Color.Black)
-        ){
-            Text(text = "Send data", color=Color.White, fontWeight = FontWeight.Bold)
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Button(
+                onClick = {
+                    val intent = Intent(context, ThirdActivity::class.java).apply {
+                        putExtra("NAME", "Rohit Tank")
+                        putExtra("REGISTER_NO", "2347161")
+                    }
+                    context.startActivity(intent)
+                },
+                modifier = Modifier.weight(1f),
+                colors = ButtonDefaults.buttonColors(Color.Black)
+            ) {
+                Text(text = "Send data", color = Color.White, fontWeight = FontWeight.Bold)
+            }
+
+            Spacer(modifier = Modifier.width(8.dp)) // Add some spacing between the buttons
+
+            Button(
+                onClick = {
+                    val intent = Intent(context, Form::class.java)
+                    context.startActivity(intent)
+                },
+                modifier = Modifier.weight(1f),
+                colors = ButtonDefaults.buttonColors(Color.Black)
+            ) {
+                Text(text = "Form", color = Color.White, fontWeight = FontWeight.Bold)
+            }
         }
+
 
         Column(
             modifier = Modifier.align(Alignment.BottomCenter)
