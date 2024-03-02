@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CommunityFoodExchange</string>
+    <string name="title_activity_choose">Choose</string>
+    <string name="title_activity_request_order">RequestOrder</string>
+    <string name="title_activity_donate_community">DonateCommunity</string>
+    <string name="title_activity_be_part_of_com">BePartOfCom</string>
+</resources>
